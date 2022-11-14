@@ -1,0 +1,84 @@
+ <Link to="/"><button>Home</button></Link>
+
+
+
+ header:
+
+ import "./Header.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Form, Button, Container, Nav, Navbar, } from "react-bootstrap"
+import { Link } from "react-router-dom";
+
+function Header() {
+  const [movies, setmovies] = useState([]);
+  const [search, setsearch] = useState("harry");
+
+  useEffect(() => {
+    MethodGet();
+  }, [""]);
+
+  async function MethodGet() {
+    let { data } = await axios.get(`https://www.omdbapi.com/?s=${search}&apikey=533b8170`);
+    setmovies(data.Search);
+  }
+ 
+
+
+  function SearchMovie(e) {
+    setsearch(e.target.value);
+  }
+
+  function ViewMovies() {
+ console.log(movies);
+  }
+
+
+  return (
+    <div className="bodyHeader">
+      <header>
+        <div>
+          <Navbar bg="danger" expand="lg">
+            <Container fluid>
+              <Navbar.Brand href="#">Home</Navbar.Brand>
+              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Collapse id="navbarScroll">
+                <Nav
+                  className="me-auto my-2 my-lg-0"
+                  style={{ maxHeight: '100px' }}
+                  navbarScroll
+                >
+                  <Nav.Link href="#action1"><Link to="/Admin">Admin</Link></Nav.Link>
+
+                </Nav>
+                <Form className="d-flex">
+                  <input
+                    type="text" className="me-2" placeholde="Search" onChange={SearchMovie} />
+
+                  <button className="btn btn-primary" onClick={() => ViewMovies()} type="submit">
+                    Buscar
+                  </button>
+                </Form>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
+        </div>
+      </header>
+    </div >
+  
+    
+  )
+}
+export default Header;
+
+
+//main.css
+.bodyMain{
+    padding-top: 10px;
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(38, 38, 38);
+    display: flex;
+    justify-content:space-evenly;
+   flex-wrap: wrap;
+}

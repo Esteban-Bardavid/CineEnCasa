@@ -1,0 +1,5 @@
+.bodyHome {
+    background: linear-gradient(50deg, rgba(88,18,93,100) 30%, rgba(31,33,104,20) 80%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,32 @@
+.w-10{
+    margin-left: 65vh;
+}
+
+.me-auto{
+    margin-left: 20px;
+}
+
+.adminRef{
+    text-decoration: none;
+    color: whitesmoke;
+}
+ .haPo h2{
+    color: gold;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: solid;
+    padding-left: 50%;
+ }
+
+ .inputSearch{
+    display: flex;
+    padding-left: 500px;
+ }
+
+
+@media (max-width: 800px) {
+    .inputSearch{
+        flex-direction: row;
+        padding-left: 30px
+        
+    }
+};
